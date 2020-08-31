@@ -1,1 +1,1 @@
-## Hot One Sauce Meter
+# Hot One Sauce Meter
