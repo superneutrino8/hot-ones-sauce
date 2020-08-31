@@ -1,10 +1,11 @@
 import React from "react";
 import "./App.css";
+import ScovilleMeter from "./components/ScovilleMeter";
 
 function App() {
   return (
     <div className="App">
-      <h2>Working</h2>
+      <ScovilleMeter scoville={7000} />
     </div>
   );
 }
