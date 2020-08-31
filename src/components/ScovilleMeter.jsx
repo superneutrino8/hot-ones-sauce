@@ -11,10 +11,36 @@ for (let i = 1; i <= 11; i++) {
   sourceImages.push(currentImage);
 }
 
+// level 1    0         -     2200
+// level 2    2201      -     4000
+// level 3    4001      -     9000
+// level 4    9001      -     30000
+// level 5    30001     -     40000
+// level 6    40001     -     71000
+// level 7    71001     -     135599
+// level 8    135600    -     356999
+// level 9    357000    -     625000
+// level 10   625001    -     1000000
+// level 11   1000001+
+
+const mins = [
+  1,
+  2201,
+  4001,
+  9001,
+  30001,
+  40001,
+  71001,
+  135600,
+  357000,
+  625001,
+  1000001,
+];
+
 const useStyles = createUseStyles({
   ScovilleMeter: {
     padding: "10px",
-    height: (height) => height,
+    height: (height) => height * 0.7,
     width: (height) => height * 0.5,
     display: "inline-flex",
     flexDirection: "column",
@@ -23,22 +49,34 @@ const useStyles = createUseStyles({
     display: "relative",
     maxHeight: "100%",
     maxWidth: "100%",
-    flex: "3",
     overflow: "hidden",
   },
-  ScovilleMeter__heading: {
-    flex: "1",
-  },
+  ScovilleMeter__heading: {},
   ScovilleMeter__OverlayImage: {
     position: "absolute",
     objectFit: "cover",
     height: (height) => height * 0.5,
-    margin: "0"
+    margin: "0",
   },
 });
 
 function ScovilleMeter({ scoville, height }) {
   const classes = useStyles(height);
+
+  const mappingImages = [];
+  mappingImages.push(sourceImages[0]);
+
+  for (let i in mins) {
+    let index = parseInt(i);
+    if (mins[i] <= scoville) {
+      mappingImages.push(sourceImages[index + 1]);
+    }
+  }
+
+  if (mappingImages.length === 12) {
+    mappingImages.push(require("../images/fire.svg"));
+  }
+
   return (
     <div className={classes.ScovilleMeter}>
       <div className={classes.ScovilleMeter__heading}>
@@ -46,7 +84,7 @@ function ScovilleMeter({ scoville, height }) {
         <p>Scoville: {scoville}</p>
       </div>
       <div className={classes.ScovilleMeter__Images}>
-        {sourceImages.map((image) => (
+        {mappingImages.map((image) => (
           <img
             src={image}
             key={image}
