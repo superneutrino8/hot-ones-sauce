@@ -51,12 +51,19 @@ const useStyles = createUseStyles({
     maxWidth: "100%",
     overflow: "hidden",
   },
-  ScovilleMeter__heading: {},
+  ScovilleMeter__heading: {
+    margin: "0",
+    lineHeight: "1.1",
+    textAlign: "center",
+    fontFamily: "Lato",
+    textTransform: "uppercase"
+  },
   ScovilleMeter__OverlayImage: {
     position: "absolute",
     objectFit: "cover",
     height: (height) => height * 0.5,
     margin: "0",
+    marginLeft: "40px",
   },
 });
 
@@ -91,10 +98,14 @@ function ScovilleMeter({ scoville, height }) {
   console.log(displayLevel);
 
   return (
-    <div className={classes.ScovilleMeter}>
+    <div className={`${classes.ScovilleMeter} ScovilleMeter__self`}>
       <div className={classes.ScovilleMeter__heading}>
-        <h1>Scoville Meter</h1>
-        <p>Scoville: {scoville}</p>
+        <h2 className="font-effect-neon">
+          Scoville
+          <br />
+          Level
+        </h2>
+        <p className="ScovilleMeter__Number font-effect-fire-animation">{scoville}</p>
       </div>
       <div className={classes.ScovilleMeter__Images}>
         {displayLevel.map((image, index) =>

@@ -1,0 +1,15 @@
+.App {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.ScovilleMeter__self {
+  justify-self: center;
+}
+
+
+@media (max-width: 900px) {
+  .App {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

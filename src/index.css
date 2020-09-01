@@ -29,3 +29,9 @@ body {
 .blink {
   animation: blink 1s infinite;
 }
+
+.ScovilleMeter__Number {
+  margin: 0;
+  font-family: Rancho;
+  font-size: 30px;
+}
