@@ -88,6 +88,8 @@ function ScovilleMeter({ scoville, height }) {
     }
   });
 
+  console.log(displayLevel);
+
   return (
     <div className={classes.ScovilleMeter}>
       <div className={classes.ScovilleMeter__heading}>
@@ -95,14 +97,23 @@ function ScovilleMeter({ scoville, height }) {
         <p>Scoville: {scoville}</p>
       </div>
       <div className={classes.ScovilleMeter__Images}>
-        {displayLevel.map((image) => (
-          <img
-            src={image}
-            key={image}
-            alt="Scoville"
-            className={classes.ScovilleMeter__OverlayImage}
-          />
-        ))}
+        {displayLevel.map((image, index) =>
+          index !== 12 ? (
+            <img
+              src={image}
+              key={image}
+              alt="Scoville"
+              className={classes.ScovilleMeter__OverlayImage}
+            />
+          ) : (
+            <img
+              src={image}
+              key={image}
+              alt="Scoville"
+              className={`${classes.ScovilleMeter__OverlayImage} blink`}
+            />
+          )
+        )}
       </div>
     </div>
   );
