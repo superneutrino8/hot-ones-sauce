@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { createUseStyles } from "react-jss";
 
 const sourceImages = [];
@@ -77,6 +77,17 @@ function ScovilleMeter({ scoville, height }) {
     mappingImages.push(require("../images/fire.svg"));
   }
 
+  const [displayLevel, setdisplayLevel] = useState([]);
+
+  useEffect(() => {
+    if (displayLevel.length !== mappingImages.length) {
+      setTimeout(() => {
+        const image = mappingImages.slice(0, displayLevel.length + 1);
+        setdisplayLevel(image);
+      }, 100);
+    }
+  });
+
   return (
     <div className={classes.ScovilleMeter}>
       <div className={classes.ScovilleMeter__heading}>
@@ -84,7 +95,7 @@ function ScovilleMeter({ scoville, height }) {
         <p>Scoville: {scoville}</p>
       </div>
       <div className={classes.ScovilleMeter__Images}>
-        {mappingImages.map((image) => (
+        {displayLevel.map((image) => (
           <img
             src={image}
             key={image}
