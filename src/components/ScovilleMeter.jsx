@@ -63,7 +63,7 @@ const useStyles = createUseStyles({
     objectFit: "cover",
     height: (height) => height * 0.5,
     margin: "0",
-    marginLeft: "40px",
+    marginLeft: (height) => height*0.05,
   },
 });
 
