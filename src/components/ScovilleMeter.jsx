@@ -56,14 +56,15 @@ const useStyles = createUseStyles({
     lineHeight: "1.1",
     textAlign: "center",
     fontFamily: "Lato",
-    textTransform: "uppercase"
+    textTransform: "uppercase",
+    color: "#e4332f",
   },
   ScovilleMeter__OverlayImage: {
     position: "absolute",
     objectFit: "cover",
     height: (height) => height * 0.5,
     margin: "0",
-    marginLeft: (height) => height*0.05,
+    marginLeft: (height) => height * 0.05,
   },
 });
 
@@ -105,7 +106,9 @@ function ScovilleMeter({ scoville, height }) {
           <br />
           Level
         </h2>
-        <p className="ScovilleMeter__Number font-effect-fire-animation">{scoville}</p>
+        <p className="ScovilleMeter__Number font-effect-fire-animation">
+          {new Intl.NumberFormat('en-US').format(scoville)}
+        </p>
       </div>
       <div className={classes.ScovilleMeter__Images}>
         {displayLevel.map((image, index) =>
