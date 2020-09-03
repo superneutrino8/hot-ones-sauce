@@ -8,11 +8,9 @@ for (let i = 1; i <= 9; i++) {
   seasonList.push(i);
 }
 
-console.log(seasonList);
-
 const useStyles = createUseStyles({
   SeasonViewer__Container: {
-    width: "250px",
+    minWidth: "250px",
     height: "100%",
     overflowY: "scroll",
     display: "flex",

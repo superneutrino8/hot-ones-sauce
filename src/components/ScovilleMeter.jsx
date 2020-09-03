@@ -96,10 +96,8 @@ function ScovilleMeter({ scoville, height }) {
     }
   });
 
-  console.log(displayLevel);
-
   return (
-    <div className={`${classes.ScovilleMeter} ScovilleMeter__self`}>
+    <div className={`${classes.ScovilleMeter} ScovilleMeter__self ScovilleMeter__Container`}>
       <div className={classes.ScovilleMeter__heading}>
         <h2 className="font-neon">
           Scoville
