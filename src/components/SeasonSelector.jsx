@@ -1,14 +1,14 @@
 import React from "react";
+import { withRouter } from "react-router";
 import { createUseStyles } from "react-jss";
 
-const seasonsHotOnes = [];
+const seasonList = [];
 
 for (let i = 1; i <= 9; i++) {
-  const currentSeason = require(`../sauces/season_${i}.json`);
-  seasonsHotOnes.push(currentSeason);
+  seasonList.push(i);
 }
 
-console.log(seasonsHotOnes);
+console.log(seasonList);
 
 const useStyles = createUseStyles({
   SeasonViewer__Container: {
@@ -40,12 +40,17 @@ const useStyles = createUseStyles({
   },
 });
 
-function SeasonSelector() {
+function SeasonSelector({ history }) {
   const classes = useStyles();
+
   return (
     <div className={classes.SeasonViewer__Container}>
-      {seasonsHotOnes.map((_, i) => (
-        <button className={classes.SeasonViewer__Buttons} key={i}>
+      {seasonList.map((_, i) => (
+        <button
+          className={classes.SeasonViewer__Buttons}
+          key={i}
+          onClick={() => history.push(`/seasons/${i + 1}`)}
+        >
           <span className="">Season {i + 1}</span>
         </button>
       ))}
@@ -53,4 +58,4 @@ function SeasonSelector() {
   );
 }
 
-export default SeasonSelector;
+export default withRouter(SeasonSelector);
