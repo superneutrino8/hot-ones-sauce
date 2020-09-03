@@ -10,6 +10,9 @@ function App() {
         <Route path="/">
           <SeasonSelector />
         </Route>
+        <Route path="/seasons/">
+          <SeasonSelector />
+        </Route>
       </Switch>
     </div>
   );
