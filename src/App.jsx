@@ -1,14 +1,16 @@
 import React from "react";
+import { Switch, Route } from "react-router-dom";
 import "./App.css";
-import ScovilleMeter from "./components/ScovilleMeter";
+import SeasonSelector from "./components/SeasonSelector";
 
 function App() {
   return (
     <div className="App">
-      <ScovilleMeter height={800} scoville={7000} />
-      <ScovilleMeter height={800} scoville={1000001} />
-      <ScovilleMeter height={800} scoville={10000} />
-      <ScovilleMeter height={800} scoville={100000} />
+      <Switch>
+        <Route path="/">
+          <SeasonSelector />
+        </Route>
+      </Switch>
     </div>
   );
 }

@@ -101,13 +101,13 @@ function ScovilleMeter({ scoville, height }) {
   return (
     <div className={`${classes.ScovilleMeter} ScovilleMeter__self`}>
       <div className={classes.ScovilleMeter__heading}>
-        <h2 className="font-effect-neon">
+        <h2 className="font-neon">
           Scoville
           <br />
           Level
         </h2>
         <p className="ScovilleMeter__Number font-effect-fire-animation">
-          {new Intl.NumberFormat('en-US').format(scoville)}
+          {new Intl.NumberFormat("en-US").format(scoville)}
         </p>
       </div>
       <div className={classes.ScovilleMeter__Images}>
