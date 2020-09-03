@@ -11,19 +11,17 @@ const useStyles = createUseStyles({
     // alignItems: "center"
   },
   SeasonViewer__Sauces: {
-    width: "100%",
-    // height: "100%",
+    height: "100%",
     margin: "0 auto",
     display: "flex",
     flexFlow: "row nowrap",
     alignItems: "flex-end",
-    justifyContent: "space-around",
-    overflowX: "scroll",
+    justifyContent: "center",
   },
   SeasonViewer__SaucesImages: {
-    // heigth: "10px",
+    margin: "0.65rem 0.55rem",
     width: "50px",
-    
+    cursor: "pointer",
   },
   SeasonViewer__Content: {
     height: "80%",
@@ -34,6 +32,7 @@ function SeasonViewer({ history, match }) {
   const classes = useStyles();
 
   const [seasonInfo, setSeasonInfo] = useState([]);
+  const [sauseName, setSauseName] = useState("");
   const currentSeason = parseInt(match.params.season) || "";
 
   useEffect(() => {
@@ -45,7 +44,7 @@ function SeasonViewer({ history, match }) {
   return (
     <div className={classes.SeasonViewer__Container}>
       <div className={classes.SeasonViewer__Content}>
-        <h2>Hello {currentSeason}</h2>
+        <h2>{sauseName || "Hello"}</h2>
       </div>
       <div className={classes.SeasonViewer__Sauces}>
         {seasonInfo?.map((sause) => (
@@ -54,6 +53,7 @@ function SeasonViewer({ history, match }) {
             alt={sause.name}
             src={sause.img_url}
             className={classes.SeasonViewer__SaucesImages}
+            onClick={() => setSauseName(sause.name)}
           />
         ))}
       </div>
