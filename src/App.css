@@ -15,6 +15,10 @@
   justify-self: center;
 }
 
+.SeasonViewer__Button--Single:last-child {
+  margin-bottom: 3rem;
+}
+
 .font-neon {
   text-shadow:
     0 0 0.1em #fff,

@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import "./App.css";
 import SeasonSelector from "./components/SeasonSelector";
 import SeasonViewer from "./components/SeasonViewer";
+import "./App.css";
 
 function App() {
   return (
@@ -12,7 +12,16 @@ function App() {
         <Route path="/seasons" component={SeasonSelector} />
       </Switch>
       <Switch>
-        <Route exact path="/seasons/:season" component={() => <SeasonViewer />} />
+        <Route
+          exact
+          path="/seasons/:season"
+          component={() => <SeasonViewer />}
+        />
+        <Route
+          exact
+          path="/seasons/:season/sauces/:sauce_id"
+          component={() => <SeasonViewer />}
+        />
       </Switch>
     </div>
   );

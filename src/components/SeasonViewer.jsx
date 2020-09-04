@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import { createUseStyles } from "react-jss";
+import SauceViewer from "./SauceViewer";
 
 const useStyles = createUseStyles({
   SeasonViewer__Container: {
@@ -34,6 +35,7 @@ function SeasonViewer({ history, match }) {
   const [seasonInfo, setSeasonInfo] = useState([]);
   const [sauseName, setSauseName] = useState("");
   const currentSeason = parseInt(match.params.season) || "";
+  console.log(match);
 
   useEffect(() => {
     if (currentSeason) {
@@ -44,7 +46,7 @@ function SeasonViewer({ history, match }) {
   return (
     <div className={classes.SeasonViewer__Container}>
       <div className={classes.SeasonViewer__Content}>
-        <h2>{sauseName || "Hello"}</h2>
+        {match.params.sauce_id ? <SauceViewer /> : ""}
       </div>
       <div className={classes.SeasonViewer__Sauces}>
         {seasonInfo?.map((sause) => (
@@ -53,7 +55,10 @@ function SeasonViewer({ history, match }) {
             alt={sause.name}
             src={sause.img_url}
             className={classes.SeasonViewer__SaucesImages}
-            onClick={() => setSauseName(sause.name)}
+            onClick={() => {
+              history.push(`/seasons/${currentSeason}/sauces/${sause.id}`);
+              setSauseName(sause.name);
+            }}
           />
         ))}
       </div>

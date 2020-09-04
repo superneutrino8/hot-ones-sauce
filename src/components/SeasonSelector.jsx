@@ -45,7 +45,7 @@ function SeasonSelector({ history }) {
     <div className={classes.SeasonViewer__Container}>
       {seasonList.map((_, i) => (
         <button
-          className={classes.SeasonViewer__Buttons}
+          className={`${classes.SeasonViewer__Buttons} SeasonViewer__Button--Single`}
           key={i}
           onClick={() => history.push(`/seasons/${i + 1}`)}
         >
