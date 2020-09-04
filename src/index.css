@@ -44,3 +44,12 @@ body {
   font-family: Lato;
   font-size: 30px;
 }
+
+.ScovilleMeter__Number--small {
+  font-size: 24px;
+}
+
+.SauceViewer__Info--Heading {
+  font-size: 30px;
+  font-family: Lato;
+}

@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
     // alignItems: "center"
   },
   SeasonViewer__Sauces: {
-    height: "100%",
+    height: "200px",
     margin: "0 auto",
     display: "flex",
     flexFlow: "row nowrap",
@@ -25,7 +25,8 @@ const useStyles = createUseStyles({
     cursor: "pointer",
   },
   SeasonViewer__Content: {
-    height: "80%",
+    height: "100%",
+    margin: "0 auto",
   },
 });
 
@@ -33,14 +34,11 @@ function SeasonViewer({ history, match }) {
   const classes = useStyles();
 
   const [seasonInfo, setSeasonInfo] = useState([]);
-  const [sauseName, setSauseName] = useState("");
   const currentSeason = parseInt(match.params.season) || "";
-  console.log(match);
 
   useEffect(() => {
     if (currentSeason) {
       setSeasonInfo(require(`../sauces/season_${currentSeason}.json`));
-      console.log("Season Info", seasonInfo);
     }
   }, [currentSeason, seasonInfo]);
   return (
@@ -57,7 +55,6 @@ function SeasonViewer({ history, match }) {
             className={classes.SeasonViewer__SaucesImages}
             onClick={() => {
               history.push(`/seasons/${currentSeason}/sauces/${sause.id}`);
-              setSauseName(sause.name);
             }}
           />
         ))}
