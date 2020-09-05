@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import { createUseStyles } from "react-jss";
 import SauceViewer from "./SauceViewer";
+import HotOnesLogo from "../svgs/Hot_Ones_by_First_We_Feast_logo.svg";
 
 const useStyles = createUseStyles({
   SeasonViewer__Container: {
@@ -28,13 +29,19 @@ const useStyles = createUseStyles({
     height: "100%",
     margin: "0 auto",
   },
+  SeasonViewer__Logo: {
+    width: "100%",
+    height: "440px",
+    position: "relative",
+    // top: "10%",
+  },
 });
 
 function SeasonViewer({ history, match }) {
   const classes = useStyles();
 
   const [seasonInfo, setSeasonInfo] = useState([]);
-  const currentSeason = parseInt(match.params.season) || "";
+  const currentSeason = parseInt(match.params.season) || undefined;
 
   useEffect(() => {
     if (currentSeason) {
@@ -43,9 +50,25 @@ function SeasonViewer({ history, match }) {
   }, [currentSeason, seasonInfo]);
   return (
     <div className={classes.SeasonViewer__Container}>
-      <div className={classes.SeasonViewer__Content}>
-        {match.params.sauce_id ? <SauceViewer /> : ""}
-      </div>
+      {seasonInfo.length > 0 &&
+      currentSeason &&
+      match.params.sauce_id === undefined ? (
+        <img
+          src={HotOnesLogo}
+          alt="Hot Ones Logo"
+          className={classes.SeasonViewer__Logo}
+        />
+      ) : (
+        ""
+      )}
+
+      {match.params.sauce_id ? (
+        <div className={classes.SeasonViewer__Content}>
+          {match.params.sauce_id ? <SauceViewer /> : ""}
+        </div>
+      ) : (
+        ""
+      )}
       <div className={classes.SeasonViewer__Sauces}>
         {seasonInfo?.map((sause) => (
           <img
