@@ -31,8 +31,9 @@ const useStyles = createUseStyles({
   },
   SeasonViewer__Logo: {
     width: "100%",
-    height: "440px",
+    height: "475px",
     position: "relative",
+    transition: "all 0.5s linear",
     // top: "10%",
   },
 });

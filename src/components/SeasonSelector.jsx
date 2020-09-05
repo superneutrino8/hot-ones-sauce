@@ -43,7 +43,7 @@ const useStyles = createUseStyles({
   },
   SeasonViewer__Logo: {
     width: "100%",
-    height: "440px",
+    height: "470px",
     position: "relative",
     top: "15%",
   },
