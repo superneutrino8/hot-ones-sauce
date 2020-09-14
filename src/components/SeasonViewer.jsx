@@ -10,6 +10,7 @@ const useStyles = createUseStyles({
     display: "flex",
     height: "100%",
     flexDirection: "column",
+    transition: "all 0.2s ease",
     // alignItems: "center"
   },
   SeasonViewer__Sauces: {
@@ -19,11 +20,13 @@ const useStyles = createUseStyles({
     flexFlow: "row nowrap",
     alignItems: "flex-end",
     justifyContent: "center",
+    transition: "all 0.2s ease",
   },
   SeasonViewer__SaucesImages: {
     margin: "0.65rem 0.55rem",
     width: "50px",
     cursor: "pointer",
+    transition: "all 0.2s ease",
   },
   SeasonViewer__Content: {
     height: "100%",

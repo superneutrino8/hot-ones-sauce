@@ -9,6 +9,7 @@ const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    transition: "all 0.2s ease",
   },
   SauceViewer__Details: {
     width: "50%",
