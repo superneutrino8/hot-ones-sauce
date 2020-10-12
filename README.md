@@ -9,7 +9,6 @@ Frontend is built using React with Context API & Hooks.
 
 ## Tech Stack
 
-- Webpack 
 - React
 - Flexbox
 - Context API
